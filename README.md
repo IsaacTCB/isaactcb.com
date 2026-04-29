@@ -14,3 +14,4 @@ To generate a static copy, run `npm install` and then
 ## Licensing
 
 The code is licensed under the MIT license.
+You can find [a copy here](README.md).
