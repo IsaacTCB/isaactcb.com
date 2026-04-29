@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Avatar from "../assets/bg/checker.svg";
 ---
 
 <!doctype html>
@@ -8,8 +9,24 @@ import "../styles/global.css";
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
         <title>IsaacTCB</title>
+
+        <!-- metadata -->
+        <meta name="generator" content={Astro.generator} />
+        <meta
+            name="description"
+            content="Hey! This is my personal website containing links to my socials and stuff."
+        />
+
+        <!-- opengraph metadata -->
+        <meta property="
+            og:type" content="website" />
+        <meta property="og:title" content="IsaacTCB" />
+        <meta
+            property="og:description"
+            content="This is my cool little webpage."
+        />
+        <meta property="og:url" content={Astro.url.href} />
     </head>
     <body>
         <slot />
