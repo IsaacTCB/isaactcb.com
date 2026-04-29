@@ -1,0 +1,48 @@
+---
+import type { SvgComponent } from "astro/types";
+import GithubIcon from "../assets/icons/github.svg";
+import ItchioIcon from "../assets/icons/itch-io.svg";
+
+import Button from "./Button.astro";
+
+type Social = {
+    name: string;
+    link: string;
+    username?: string;
+    icon?: SvgComponent | undefined;
+    primary: boolean;
+};
+
+export type SocialID = "github" | "itchio";
+export const socials: Social[] = [
+    {
+        name: "GitHub",
+        link: "https://github.com/IsaacTCB",
+        username: "IsaacTCB",
+        icon: GithubIcon,
+        primary: false,
+    },
+
+    {
+        name: "itch.io",
+        link: "https://isaactcb.itch.io",
+        username: "isaactcb",
+        icon: ItchioIcon,
+        primary: false,
+    },
+];
+---
+
+<>
+    {
+        socials.map(({ name, link, icon: Icon, primary }) => (
+            <Button
+                href={link}
+                role={primary ? "primary" : "secondary"}
+                Icon={Icon}
+            >
+                {name}
+            </Button>
+        ))
+    }
+</>

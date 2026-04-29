@@ -1,0 +1,71 @@
+---
+import type { SvgComponent } from "astro/types";
+import Arrow from "../assets/icons/arrow.svg";
+
+export interface Props {
+    role?: "primary" | "secondary" | "danger";
+    type?: "button" | "submit" | "reset";
+    href?: string;
+    Icon?: SvgComponent;
+}
+
+const { role, type, href, Icon } = Astro.props;
+
+let classList =
+    "h-16 text-md " +
+    "border font-semibold px-2 py-2 " +
+    "rounded-xl drop-shadow-md " +
+    "cursor-pointer transition-colors " +
+    "flex flex-row items-center relative ";
+
+switch (role) {
+    case "primary":
+        classList +=
+            "bg-accent-500/100 " +
+            "border-accent-399 " +
+            "text-accent-100 " +
+            "hover:bg-accent-400 ";
+        break;
+    case "secondary":
+    default:
+        classList +=
+            "bg-white " +
+            "border-accent-500 " +
+            "text-accent-400 " +
+            "hover:bg-accent-100 " +
+            "hover:border-accent-300 " +
+            "shadow-xl " +
+            "shadow-accent-500/20 " +
+            "dark:bg-alt-900 " +
+            "dark:hover:bg-alt-800 " +
+            "dark:shadow-accent-800/20 ";
+        break;
+    case "danger":
+        classList +=
+            "bg-red-50 " +
+            "border-red-200 " +
+            "text-red-800 " +
+            "hover:bg-red-200 " +
+            "hover:border-red-200 " +
+            "hover:drop-shadow-md " +
+            "dark:bg-red-400 " +
+            "dark:text-red-950 " +
+            "dark:border-red-950 ";
+        break;
+}
+---
+
+<a href={href} type={type} class:list={classList}>
+    {
+        Icon != null && (
+            <>
+                <Icon fill="currentColor" class="absolute left-4 h-8 w-8" />
+                <div class="absolute bg-current/20 w-px left-16 h-full scale-y-80" />
+                <Arrow class="absolute right-4 h-5 w-5" />
+            </>
+        )
+    }
+    <div class="grow flex flex-row justify-center items-center gap-2">
+        <slot />
+    </div>
+</a>

@@ -1,0 +1,53 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SocialButtons from "../components/SocialButtons.astro";
+
+import Logo from "../components/Logo.astro";
+---
+
+<BaseLayout>
+    <!-- Background -->
+
+    <div
+        aria-hidden="true"
+        class="bg-checker absolute inset-0 -z-100 h-[80vh] mask-b-from-30%"
+    >
+    </div>
+
+    <!-- Main -->
+
+    <div class="absolute inset-0 flex items-center justify-center">
+        <div
+            class="h-full pb-8 flex flex-col gap-12 justify-center items-center"
+        >
+            <Logo />
+            <div class="p-4 rounded-xl">
+                <p
+                    class="block font-semibold mb-4 opacity-60 tracking-widest uppercase text-center"
+                >
+                    - Links -
+                </p>
+                <section class="flex flex-col gap-4 w-[80vw] md:w-90">
+                    <SocialButtons />
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+
+    <footer
+        class="absolute bottom-0 text-gray-600 w-full flex flex-row flex-wrap justify-center gap-x-1 gap-y-2 text-sm px-8 mb-4 md:gap-2 md:flex-nowrap md:text-base"
+    >
+        <p class="quip">
+            Website is still WIP, just hang on... <span
+                class="text-gray-500/50 invisible md:visible">•</span
+            >
+        </p>
+        <p>Hosted using GitHub Pages</p>
+        <span class="text-gray-500/50 invisible md:visible">•</span>
+        <a href="https://github.com/IsaacTCB" class="underline text-accent-500">
+            Source code
+        </a>
+    </footer>
+</BaseLayout>

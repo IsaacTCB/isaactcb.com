@@ -1,0 +1,22 @@
+@layer components {
+    .bg-checker {
+        @apply overflow-hidden;
+
+        &::before {
+            @apply absolute -inset-full rotate-10 content-[''];
+            background-image: var(--checker-texture);
+            filter: blur(10px);
+            animation: checkerScroll 16s linear infinite;
+            opacity: 50%;
+        }
+    }
+
+    @keyframes checkerScroll {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: 299px 299px;
+        }
+    }
+}

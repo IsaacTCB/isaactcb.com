@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Geo:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import "tailwindcss";
+
+@import "./components/checker.css";
+
+:root {
+    --checker-texture: url("../assets/bg/checker.svg");
+}
+
+* {
+    @variant dark {
+        --checker-texture: url("../assets/bg/checker-dark.svg");
+    }
+}
+
+body {
+    background-color: #dcf4ff;
+    color: black;
+
+    @variant dark {
+        background-color: #06081a;
+        color: white;
+    }
+}
+
+@theme {
+    --font-header: "Nunito", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+    --color-accent-100: #cde7ff;
+    --color-accent-200: #9bcfff;
+    --color-accent-300: #69b6ff;
+    --color-accent-400: #379eff;
+    --color-accent-500: #0586ff;
+    --color-accent-600: #046bcc;
+    --color-accent-700: #035099;
+    --color-accent-800: #023666;
+    --color-accent-900: #011b33;
+
+    --color-alt-100: #d9dcff;
+    --color-alt-200: #b3b9ff;
+    --color-alt-300: #8c96ff;
+    --color-alt-400: #6673ff;
+    --color-alt-500: #4050ff;
+    --color-alt-600: #3340cc;
+    --color-alt-700: #263099;
+    --color-alt-800: #1a2066;
+    --color-alt-900: #0d1033;
+}
