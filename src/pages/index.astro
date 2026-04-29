@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SocialButtons from "../components/SocialButtons.astro";
 
 import Logo from "../components/Logo.astro";
+
+const source_url: string = import.meta.env.SOURCE_URL ?? "#";
 ---
 
 <BaseLayout>
@@ -46,11 +48,6 @@ import Logo from "../components/Logo.astro";
         </p>
         <p>Hosted using GitHub Pages</p>
         <span class="text-gray-500/50 invisible md:visible">•</span>
-        <a
-            href="https://github.com/IsaacTCB/isaactcb.github.io"
-            class="underline text-accent-500"
-        >
-            Source code
-        </a>
+        <a href={source_url} class="underline text-accent-500"> Source code </a>
     </footer>
 </BaseLayout>
