@@ -4,7 +4,7 @@ import Arrow from "../assets/icons/arrow.svg";
 
 export interface Props {
     role?: "primary" | "secondary" | "danger";
-    type?: "button" | "submit" | "reset";
+    type?: "normal" | "big";
     href?: string;
     Icon?: SvgComponent;
 }
@@ -12,11 +12,15 @@ export interface Props {
 const { role, type, href, Icon } = Astro.props;
 
 let classList =
-    "h-16 text-md " +
+    "text-md " +
     "border font-semibold px-2 py-2 " +
     "rounded-xl drop-shadow-md " +
     "cursor-pointer transition-colors " +
     "flex flex-row items-center relative ";
+
+if (type == "big") {
+    classList += "h-16 ";
+}
 
 switch (role) {
     case "primary":
@@ -61,11 +65,11 @@ switch (role) {
             <>
                 <Icon fill="currentColor" class="absolute left-4 h-8 w-8" />
                 <div class="absolute bg-current/20 w-px left-16 h-full scale-y-80" />
-                <Arrow class="absolute right-4 h-5 w-5" />
             </>
         )
     }
     <div class="grow flex flex-row justify-center items-center gap-2">
         <slot />
     </div>
+    <Arrow class="absolute right-4 h-5 w-5" />
 </a>

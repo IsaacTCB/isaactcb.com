@@ -38,6 +38,7 @@ export const socials: Social[] = [
         socials.map(({ name, link, icon: Icon, primary }) => (
             <Button
                 href={link}
+                type="big"
                 role={primary ? "primary" : "secondary"}
                 Icon={Icon}
             >
