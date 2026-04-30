@@ -1,0 +1,16 @@
+---
+const source_url: string = import.meta.env.SOURCE_URL ?? "#";
+---
+
+<footer
+    class="absolute bottom-0 text-gray-600 w-full flex flex-row flex-wrap justify-center gap-x-1 gap-y-2 text-sm px-8 mb-4 md:gap-2 md:flex-nowrap md:text-base"
+>
+    <p class="quip">
+        Website is still WIP, just hang on... <span
+            class="text-gray-500/50 invisible md:visible">•</span
+        >
+    </p>
+    <p>Hosted using GitHub Pages</p>
+    <span class="text-gray-500/50 invisible md:visible">•</span>
+    <a href={source_url} class="underline text-accent-500"> Source code </a>
+</footer>

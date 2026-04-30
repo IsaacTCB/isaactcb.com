@@ -1,23 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import SocialButtons from "../components/SocialButtons.astro";
+import type { Graph } from "../layouts/BaseLayout.astro";
 
 import Logo from "../components/Logo.astro";
+import SocialButtons from "../components/SocialButtons.astro";
+import Footer from "../components/Footer.astro";
 
-const source_url: string = import.meta.env.SOURCE_URL ?? "#";
+const graph: Graph = {
+    type: "website",
+    brief: "This is my cool little webpage",
+    description:
+        "Hey! This is my personal website containing links to my socials and stuff.",
+};
 ---
 
-<BaseLayout>
-    <!-- Background -->
-
-    <div
-        aria-hidden="true"
-        class="bg-checker absolute inset-0 -z-100 h-[80vh] mask-b-from-30%"
-    >
-    </div>
-
-    <!-- Main -->
-
+<BaseLayout graph={graph}>
     <div class="absolute inset-0 flex items-center justify-center">
         <div
             class="h-full pb-8 flex flex-col gap-12 justify-center items-center"
@@ -36,18 +33,5 @@ const source_url: string = import.meta.env.SOURCE_URL ?? "#";
         </div>
     </div>
 
-    <!-- Footer -->
-
-    <footer
-        class="absolute bottom-0 text-gray-600 w-full flex flex-row flex-wrap justify-center gap-x-1 gap-y-2 text-sm px-8 mb-4 md:gap-2 md:flex-nowrap md:text-base"
-    >
-        <p class="quip">
-            Website is still WIP, just hang on... <span
-                class="text-gray-500/50 invisible md:visible">•</span
-            >
-        </p>
-        <p>Hosted using GitHub Pages</p>
-        <span class="text-gray-500/50 invisible md:visible">•</span>
-        <a href={source_url} class="underline text-accent-500"> Source code </a>
-    </footer>
+    <Footer />
 </BaseLayout>

@@ -1,5 +1,20 @@
 ---
 import "../styles/global.css";
+
+import CheckerBackground from "../components/CheckerBackground.astro";
+
+export type Graph = {
+    type: string;
+    brief: string;
+    description: string;
+};
+
+export interface Props {
+    title?: string;
+    graph?: Graph;
+}
+
+const { title, graph } = Astro.props;
 ---
 
 <!doctype html>
@@ -8,26 +23,25 @@ import "../styles/global.css";
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>IsaacTCB</title>
+        <title>{title ?? "IsaacTCB"}</title>
 
         <!-- metadata -->
         <meta name="generator" content={Astro.generator} />
-        <meta
-            name="description"
-            content="Hey! This is my personal website containing links to my socials and stuff."
-        />
-
-        <!-- opengraph metadata -->
-        <meta property="
-            og:type" content="website" />
-        <meta property="og:title" content="IsaacTCB" />
-        <meta
-            property="og:description"
-            content="This is my cool little webpage."
-        />
-        <meta property="og:url" content={Astro.url.href} />
+        {
+            graph && (
+                <>
+                    <meta name="description" content={graph.description} />
+                    <meta property="og:title" content={title ?? "IsaacTCB"} />
+                    <meta property="og:type" content={graph.type} />
+                    <meta property="og:description" content={graph.brief} />
+                    <meta property="og:url" content={Astro.url.href} />
+                </>
+            )
+        }
+        <!-- end of metadata -->
     </head>
     <body>
+        <CheckerBackground />
         <slot />
     </body>
 </html>
