@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import Button from "../components/Button.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="404 Not Found">
+    <section
+        class="absolute w-full h-full m-auto flex flex-col items-center justify-center"
+    >
+        <div class="text-center mb-8">
+            <h1
+                class="text-8xl -mb-3 font-bold tracking-[-0.075em] text-accent-600 dark:text-accent-100 text-shadow-sm text-shadow-accent-200/20 dark:text-shadow-accent-500/20"
+            >
+                404
+            </h1>
+            <code>Page not found</code>
+        </div>
+        <p class="mb-8">This page does not exist.</p>
+
+        <div class="w-60">
+            <Button role="secondary" href="/"> Back to home </Button>
+        </div>
+    </section>
+
+    <Footer />
+</BaseLayout>
